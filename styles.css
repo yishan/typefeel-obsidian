@@ -233,11 +233,9 @@
 .typefeel-host .tp-char.wrong {
   color: var(--tf-state-error-primary);
   text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
 }
 .typefeel-host .tp-root {
-  --tp-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --tp-font-mono: SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   --tp-cursor-color: var(--tf-brand-primary-new-colorprimary-new-color, #4176e6);
 }
 .typefeel-host .tp-char.caret { position: relative; }
@@ -368,7 +366,7 @@
 .typefeel-host .tp-action { position: relative; display: inline-flex; }
 .typefeel-host .tp-shortcut-tip { position: absolute; left: 50%; bottom: calc(100% + 8px); z-index: 10; padding: 5px 9px; border: 1px solid var(--tf-border-l1); border-radius: 6px; background: var(--tf-bg-layer-2); color: var(--tf-label-primary); font-size: 11.5px; white-space: nowrap; visibility: hidden; opacity: 0; transform: translate(-50%, 4px); pointer-events: none; transition: opacity 120ms ease-out, transform 120ms ease-out, visibility 120ms; }
 .typefeel-host .tp-action .tp-btn:focus-visible + .tp-shortcut-tip { visibility: visible; opacity: 1; transform: translate(-50%, 0); transition: none; }
-.typefeel-host .tp-option-group:has(.tp-seg-btn:focus-visible) > .tp-shortcut-tip { visibility: visible; opacity: 1; transform: translate(-50%, 0); transition: none; }
+.typefeel-host .tp-seg-btn:focus-visible ~ .tp-shortcut-tip { visibility: visible; opacity: 1; transform: translate(-50%, 0); transition: none; }
 .typefeel-host .tp-instructions { display: grid; min-width: 0; flex: 1; font-size: 11.5px; line-height: 18px; }
 .typefeel-host .tp-btn {
   display: inline-flex;
@@ -459,13 +457,13 @@
 .typefeel-host .tp-pinyin-controls .tp-sound-field { grid-template-columns: 64px minmax(0, 1fr); gap: 12px; }
 .typefeel-host .tp-pinyin-preview { display: flex; justify-content: center; align-items: center; gap: 6px; min-width: 0; font-size: 24px; }
 .typefeel-host .tp-pinyin-note { margin: 0; color: var(--tf-label-secondary); font-size: 12px; line-height: 1.7; }
-.typefeel-host .tp-sound-field:has(select:disabled) { opacity: .5; }
+.typefeel-host .tp-sound-field.is-disabled { opacity: .5; }
 .typefeel-host .tp-sound-status > span { grid-area: 1 / 1; }
 .typefeel-host .tp-sound-credit { font-size: 11px; color: var(--tf-label-secondary); text-underline-offset: 3px; }
 .typefeel-host .tp-cursor-layout, .typefeel-host .tp-pinyin-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
 .typefeel-host .tp-cursor-controls, .typefeel-host .tp-pinyin-controls { display: grid; gap: 12px; min-width: 0; }
 .typefeel-host .tp-cursor-controls .tp-sound-field { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }
-.typefeel-host .tp-cursor-preview { display: flex; justify-content: center; align-items: center; min-width: 0; margin: 0; border-radius: 8px; background: var(--tf-bg-layer-2); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 26px; line-height: 1.25; }
+.typefeel-host .tp-cursor-preview { display: flex; justify-content: center; align-items: center; min-width: 0; margin: 0; border-radius: 8px; background: var(--tf-bg-layer-2); font-family: SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 26px; line-height: 1.25; }
 .typefeel-host .tp-cursor-preview-text { white-space: pre; }
 .typefeel-host .tp-cursor-toggles { display: grid; gap: 12px; }
 .typefeel-host .tp-cursor-toggle { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; font-size: 13px; cursor: pointer; }
@@ -602,7 +600,7 @@
 .typefeel-host .tf-game-root .tp-header { flex-wrap: wrap; gap: 8px; }
 .typefeel-host .tf-game-root .tp-header-actions { margin-inline-start: auto; }
 }
-.typefeel-host .tf-game-root[data-compact="true"] .tf-game-page { padding-top: 12px !important; padding-bottom: 8px !important; gap: 8px !important; }
+.typefeel-host .tp-root.tf-game-root[data-compact="true"] .tf-game-page { padding-top: 12px; padding-bottom: 8px; gap: 8px; }
 .typefeel-host .tf-game-root[data-compact="true"] .tp-subtitle { display: none; }
 .typefeel-host .tf-game-root[data-compact="true"] .tf-game-stage { min-height: 70px; }
 .typefeel-host .tf-game-root[data-compact="true"] .tf-game-stats { padding: 0; }
@@ -618,6 +616,7 @@
 .typefeel-host .tf-game-life { transition: none; }
 }
 .typefeel-host .tp-root[data-platform="obsidian"] {
+  --tp-font-mono: var(--font-monospace, monospace);
   --tf-bg-base: var(--background-primary);
   --tf-bg-layer-1: var(--background-secondary);
   --tf-bg-layer-2: var(--interactive-normal);

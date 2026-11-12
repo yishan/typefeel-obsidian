@@ -1,0 +1,30 @@
+{
+  "name": "typefeel",
+  "version": "0.1.1",
+  "description": "Chinese, Cantonese and English typing practice with native IME input, a falling words game, keyboard sounds and local scores.",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "keywords": [
+    "obsidian",
+    "typing",
+    "practice",
+    "ime",
+    "chinese",
+    "cantonese"
+  ],
+  "author": "Yishan",
+  "license": "MIT",
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "mdast-util-from-markdown": "2.0.2",
+    "pinyin-pro": "3.29.5",
+    "to-jyutping": "3.1.1"
+  }
+}
